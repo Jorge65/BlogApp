@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mun-frontend-app:
+    image: blogapp-front-image3
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile 
+    volumes:
+      - ./frontend/:/usr/src/app
+    ports:
+      - 3000:80
+    container_name: mun-dev-frontend-kontti3
+
+  mun-backend-app:
+    image: blogapp-back-image3
+    build:
+      context: ./backend/
+      dockerfile: dev.Dockerfile
+    ports:
+      - 3003:3003
+    container_name: blogapp-back-kontti3 
+    #environment:
+    #    MONGODB_URI=mongodb://jkemppainen:perusukko@jkcluster0.q4kt7z0.mongodb.net/blogApp?retryWrites=true&w=majority
+    #    PORT=3003
+    #volumes:
+    #  - ./backend:/usr/src/app
+
+  nginx:
+    image: nginx:1.24
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80 # this is needed
+    container_name: reverse-proxy
+    depends_on:
+      - mun-frontend-app
+    #  - mun-backend-app
+
+########## building and testing commands ###############
+## docker compose -f docker-compose.dev.yml up
+## docker compose -f docker-compose.dev.yml down
+
+## tests: 
+#    docker ps
+#    browser: http://localhost:3003/api/blogs
