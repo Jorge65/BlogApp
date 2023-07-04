@@ -2,26 +2,22 @@ version: '3.8'
 
 services:
   mun-frontend-app:
-    image: blogapp-front-image3
+    image: blogapp-front-image3-p
     build:
       context: ./frontend/
-      dockerfile: dev.Dockerfile 
-    #volumes:
-    #  - ./frontend/:/usr/src/app
-    ports:
-      - 3000:80
-    container_name: mun-dev-frontend-kontti3
+      dockerfile: Dockerfile 
+    #ports:
+    #  - 3000:80
+    container_name: mun-dev-frontend-kontti3-p
 
   mun-backend-app:
-    image: blogapp-back-image3
+    image: blogapp-back-image3-p
     build:
       context: ./backend/
-      dockerfile: dev.Dockerfile
-    ports:
-      - 3003:3003
-    container_name: blogapp-back-kontti3 
-    #volumes:
-    #  - ./backend/:/usr/src/app
+      dockerfile: Dockerfile
+    #ports:
+    #  - 3003:3003
+    container_name: blogapp-back-kontti3 -p
 
   nginx:
     image: nginx:1.24
@@ -41,3 +37,4 @@ services:
 ## tests: 
 #    docker ps
 #    browser: http://localhost:3003/api/blogs
+
