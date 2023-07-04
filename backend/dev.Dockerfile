@@ -19,8 +19,8 @@ ENV PORT=3003
 
 # the next line (nodemon call) requires proper .gitignore file to work:
 CMD ["npm", "run", "dev"]
-#CMD ["npm", "start"]
 
+########## building and testing commands ###############
 ## docker build . -t blogapp-dev-back-image2 -f dev.Dockerfile
 ## docker run --rm --name blogapp-dev-back-kontti2 -p 3003:3003 blogapp-dev-back-image2
 
