@@ -6,8 +6,8 @@ services:
     build:
       context: ./frontend/
       dockerfile: Dockerfile 
-    #ports:
-    #  - 3000:80
+    ports:
+      - 3000:80
     container_name: mun-dev-frontend-kontti3-p
 
   mun-backend-app:
@@ -15,9 +15,9 @@ services:
     build:
       context: ./backend/
       dockerfile: Dockerfile
-    #ports:
-    #  - 3003:3003
-    container_name: blogapp-back-kontti3 -p
+    ports:
+      - 3003:3003
+    container_name: blogapp-back-kontti3-p
 
   nginx:
     image: nginx:1.24
@@ -31,10 +31,10 @@ services:
     #  - mun-backend-app
 
 ########## building and testing commands ###############
-## docker compose -f docker-compose.dev.yml up
-## docker compose -f docker-compose.dev.yml down
+## docker compose up
+## docker compose down
 
 ## tests: 
 #    docker ps
-#    browser: http://localhost:3003/api/blogs
+#    browser: http://localhost:8080
 

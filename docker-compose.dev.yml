@@ -39,5 +39,5 @@ services:
 ## docker compose -f docker-compose.dev.yml down
 
 ## tests: 
-#    docker ps
-#    browser: http://localhost:3003/api/blogs
+#   docker ps
+#   browser: http://localhost:3000 
