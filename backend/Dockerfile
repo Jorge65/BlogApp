@@ -18,10 +18,8 @@ ENV NODE_ENV=production
 
 CMD ["npm", "start"]
 
+########## building and testing commands ###############
 ## docker build . -t blogapp-back-image 
-## docker run --rm --name blogapp-back-kontti -p 3003:3003 blogapp-back-image
-
-## docker build . -t blogapp-back-image
 ## docker run --rm --name blogapp-back-kontti -p 3003:3003 blogapp-back-image
 
 ## test with browser: 
